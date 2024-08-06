@@ -1,0 +1,43 @@
+extends common/layout
+
+block main-content
+  h1.page-title Welcome to NewsXGiphy!
+
+  // Featured News Section
+  section#featured-news
+    h2.section-title Featured News
+    .news-container
+      if newsData.articles.length > 0
+        each article in newsData.articles.slice(0, 3) 
+          .news-article
+            h2.news-title= article.title
+            p.news-description= article.description
+      else
+        p There is no news for this category currently.
+
+  // Trending GIFs Section
+  section#trending-gifs
+    h2.section-title Trending GIFs
+    .gif-container
+      each gif in gifsData.data.slice(0, 3) 
+        iframe.giphy-embed(src=gif.embed_url width="280" height="280" frameBorder="0" allowFullScreen)
+
+  // Category Buttons
+  .button-container
+    form(action="/category" method="post")
+      button.category-button(type="submit" name="category" value="sports") Sports
+      button.category-button(type="submit" name="category" value="technology") Technology
+      button.category-button(type="submit" name="category" value="health") Health
+      button.category-button(type="submit" name="category" value="science") Science
+      button.category-button(type="submit" name="category" value="business") Business
+      button.category-button(type="submit" name="category" value="entertainment") Entertainment
+
+  // Newsletter Subscription Form
+  section#newsletter
+    h2.section-title Subscribe to Our Newsletter
+    form.newsletter-form(action="/subscribe" method="post")
+      input(type="email" name="email" placeholder="Enter your email" required)
+      button(type="submit") Subscribe
+
+
+  script(src="/javascripts/category.js")
