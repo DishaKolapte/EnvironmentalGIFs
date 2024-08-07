@@ -1,45 +1,17 @@
-// Import required modules
 const express = require("express");
 const path = require("path");
-const dotenv = require("dotenv");
+const routes = require("./routes");
 
-dotenv.config();
-const { getNews } = require("./modules/NewsAPI");
-const { getGifs } = require("./modules/GiphyAPI");
-
-// Set up Express app
 const app = express();
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
-
-// Define important folders
+//settings for express app
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-// Setup public folder
+//set up folder for static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// PAGE ROUTES
-app.get("/", async (request, response) => {
-  const category = request.query.category || "Sports";
-  const newsData = await getNews(category); // default category
-  const gifsData = await getGifs(category); // default category
-  response.render("index", { title: "Home", gifsData, newsData });
-});
+app.use("/", routes);
 
-app.get("/about", async (request, response) => {
-  response.render("about", { title: "About" });
-});
-
-app.post("/category", async (req, res) => {
-  const category = req.body.category || "Sports"; // Default category
-  const newsData = await getNews(category);
-  const gifsData = await getGifs(category);
-  res.render("index", { title: "Home", gifsData, newsData });
-});
-
-// Set up server listening
-app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
-});
+app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
