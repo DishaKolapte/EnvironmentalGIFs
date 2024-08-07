@@ -28,17 +28,9 @@ app.get("/", async (request, response) => {
   response.render("index", { title: "Home", gifsData, newsData });
 });
 
-// // API ROUTES
-// app.get("/api/category/:category", async (req, res) => {
-//   const category = req.params.category;
-//   try {
-//     const gifsData = await getGifs(category);
-//     const newsData = await getNews(category);
-//     res.json({ gifs: gifsData, news: newsData });
-//   } catch (error) {
-//     res.status(500).json({ error: "Failed to fetch data" });
-//   }
-// });
+app.get("/about", async (request, response) => {
+  response.render("about", { title: "About" });
+});
 
 app.post("/category", async (req, res) => {
   const category = req.body.category || "Sports"; // Default category

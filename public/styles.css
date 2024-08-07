@@ -1,7 +1,8 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: url('./images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     color: #333;
@@ -13,8 +14,7 @@ a {
 }
 
 a:hover {
-    text-decoration:none;
-    
+    text-decoration: none;
 }
 
 /* Header Styles */
@@ -53,7 +53,9 @@ a:hover {
 
 #main-nav ul li a {
     color: white;
+    text-transform: uppercase;
     font-size: 1.2em;
+
 }
 
 /* Main Content Styles */
@@ -61,7 +63,7 @@ a:hover {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -91,6 +93,7 @@ a:hover {
     flex-wrap: wrap;
 }
 
+
 /* Button Container Styles */
 .button-container {
     display: flex;
@@ -100,7 +103,7 @@ a:hover {
 }
 
 .category-button {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -112,7 +115,7 @@ a:hover {
 }
 
 .category-button:hover {
-    background-color: #0056b3;
+    background-color: #333;
 }
 
 /* News Container Styles */
@@ -121,7 +124,7 @@ a:hover {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -156,13 +159,17 @@ a:hover {
 
 /* Newsletter Subscription Form Styles */
 #newsletter {
-    background-color: #f9f9f9;
+    background-color: rgba(249, 249, 249, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: 20px auto;
     max-width: 600px;
+}
+
+#newsletter h2 {
+    font-size: 1.5em;
 }
 
 .newsletter-form input[type="email"] {
@@ -177,7 +184,7 @@ a:hover {
 .newsletter-form button {
     padding: 10px 20px;
     font-size: 1em;
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     border: none;
     border-radius: 5px;
@@ -185,23 +192,55 @@ a:hover {
 }
 
 .newsletter-form button:hover {
-    background-color: #0056b3;
+    background-color: #333;
 }
 
-/* About Us Section Styles */
-#about-us {
+/* About Page Styles */
+#about-content {
     padding: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 800px;
-    text-align: center;
+    text-align: left;
+    line-height: 1.6em;
 }
 
-#about-us p {
+#about-content h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    color: #333;
+}
+
+#about-content p {
     font-size: 1.2em;
-    line-height: 1.6em;
+    margin-bottom: 20px;
+}
+
+#about-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+#about-content ul.social-media {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#about-content ul.social-media li {
+    margin-right: 15px;
+}
+
+#about-content ul.social-media li a {
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+#about-content ul.social-media li a:hover {
+    text-decoration: underline;
 }
 
 /* Footer Styles */
